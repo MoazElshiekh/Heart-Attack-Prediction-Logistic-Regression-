@@ -39,18 +39,13 @@ The dataset used for training the model is named `heart_attack_prediction_datase
 
 ## Installation
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/yourusername/heart-attack-risk-predictor.git
-    cd heart-attack-risk-predictor
-    ```
 
-2. Install the required packages:
+1. Install the required packages:
     ```sh
     pip install pandas scikit-learn joblib gradio
     ```
 
-3. Place the dataset (`heart_attack_prediction_dataset.csv`) in the project directory.
+2. Place the dataset (`heart_attack_prediction_dataset.csv`) in the project directory.
 
 ## Usage
 
