@@ -218,9 +218,6 @@ Name: Hemisphere, dtype: int64
 - This analysis helps in understanding the composition of the dataset based on various categorical features.
 
 ---
-Certainly! Here are Steps 4, 5, and 6:
-
----
 
 ## Step 4: Data Consistency Checks
 
@@ -231,11 +228,11 @@ In this step, we perform data consistency checks to identify any inconsistencies
 We check for inconsistencies in the `Age` and `Heart Rate` columns to ensure data quality.
 
 ```python
-# Example check: Age should be positive
+# check: Age should be positive
 if (df['Age'] < 0).any():
     print("Inconsistent Age values found.")
 
-# Example check: Heart Rate should be within a reasonable range
+#  check: Heart Rate should be within a reasonable range
 if (df['Heart Rate'] < 30).any() or (df['Heart Rate'] > 220).any():
     print("Inconsistent Heart Rate values found.")
 ```
@@ -537,88 +534,6 @@ plt.show()
 - Created scatter plots of the top correlated variables against heart attack risk.
 
 ---
-## Step 7: Data Inspection and Cleaning
-
-### Introduction
-In this step, we inspect and clean the dataset, focusing on identifying and handling non-numeric data in numeric columns and addressing missing values.
-
-### Code for Data Inspection and Cleaning
-
-```python
-import pandas as pd
-import numpy as np
-
-# Load the dataset
-df = pd.read_csv('~/Downloads/heart_attack_prediction_dataset.csv')
-
-# Print the first few rows of the dataset to inspect the data
-print(df.head())
-
-# Check for non-numeric data in numeric columns
-for col in df.columns:
-    if df[col].dtype == object:
-        print(f"Column '{col}' has non-numeric values:")
-        print(df[col].unique())
-```
-
-### Result of Data Inspection
-
-```plaintext
-  Patient ID  Age     Sex  Cholesterol Blood Pressure  Heart Rate  Diabetes  \
-0    BMW7812   67    Male          208         158/88          72         0   
-1    CZE1114   21    Male          389         165/93          98         1   
-2    BNI9906   21  Female          324         174/99          72         1   
-3    JLN3497   84    Male          383        163/100          73         1   
-4    GFO8847   66    Male          318          91/88          93         1   
-
-   Family History  Smoking  Obesity  ...  Sedentary Hours Per Day  Income  \
-0               0        1        0  ...                 6.615001  261404   
-1               1        1        1  ...                 4.963459  285768   
-2               0        0        0  ...                 9.463426  235282   
-3               1        1        0  ...                 7.648981  125640   
-4               1        1        1  ...                 1.514821  160555   
-
-         BMI  Triglycerides  Physical Activity Days Per Week  \
-0  31.251233            286                                0   
-1  27.194973            235                                1   
-2  28.176571            587                                4   
-3  36.464704            378                                3   
-4  21.809144            231                                1   
-
-   Sleep Hours Per Day    Country      Continent           Hemisphere  \
-0                    6  Argentina  South America  Southern Hemisphere   
-1                    7     Canada  North America  Northern Hemisphere   
-2                    4     France         Europe  Northern Hemisphere   
-3                    4     Canada  North America  Northern Hemisphere   
-4                    5   Thailand           Asia  Northern Hemisphere   
-
-   Heart Attack Risk  
-0                  0  
-1                  0  
-2                  0  
-3                  0  
-4                  0  
-
-[5 rows x 26 columns]
-
-Column 'Patient ID' has non-numeric values:
-['BMW7812' 'CZE1114' 'BNI9906' ... 'XKA5925' 'EPE6801' 'ZWN9666']
-Column 'Sex' has non-numeric values:
-['Male' 'Female']
-Column 'Blood Pressure' has non-numeric values:
-['158/88' '165/93' '174/99' ... '137/94' '94/76' '119/67']
-Column 'Diet' has non-numeric values:
-['Average' 'Unhealthy' 'Healthy']
-Column 'Country' has non-numeric values:
-['Argentina' 'Canada' 'France' 'Thailand' 'Germany' 'Japan' 'Brazil'
- 'South Africa' 'United States' 'Vietnam' 'China' 'Italy' 'Spain' 'India'
- 'Nigeria' 'New Zealand' 'South Korea' 'Australia' 'Colombia'
- 'United Kingdom']
-Column 'Continent' has non-numeric values:
-['South America' 'North America' 'Europe' 'Asia' 'Africa' 'Australia']
-Column 'Hemisphere' has non-numeric values:
-['Southern Hemisphere' 'Northern Hemisphere']
-```
 
 ## Step 7: Feature Selection Using Recursive Feature Elimination (RFE)
 
