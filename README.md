@@ -124,25 +124,10 @@ scaler = StandardScaler()
 df[numerical_columns] = scaler.fit_transform(df[numerical_columns])
 ```
 
-### Splitting the Dataset
-The dataset is split into training and testing sets to evaluate the performance of the model. The target variable is `Heart Attack Risk`.
-
-```python
-from sklearn.model_selection import train_test_split
-
-# Define features (X) and target (y)
-X = df.drop(columns=['Patient ID', 'Heart Attack Risk'])
-y = df['Heart Attack Risk']
-
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-```
 
 ### Summary
 - Categorical variables are converted to numerical format using one-hot encoding.
 - Numerical features are normalized for improved model performance.
-- The dataset is split into training and testing sets for model evaluation.
-
 ---
 
 ## Step 3: Analyzing Categorical Variables
